@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+.nav-link:hover{
+    
+    font-weight: bold;
+}
+.nav-link{
+    padding: 20px;
+}
+#greeting{
+    font-family: 'Lobster', cursive;
+}
+#title{
+    font-family: 'Indie Flower', cursive;
+    margin-right: 10px;
+}
+blockquote p{
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+}
+nav{
+    background-image: url('../img/bimg.jfif');
+    background-position: center;
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+.jumbotron
+{
+    background-color:#fffdd0;
+    border-radius: 0px;
+}
+.carousel .carousel-item {
+    height: 400px; 
+}
+.carousel .carousel-item img {
+      max-height: 400px; 
+      position: absolute;
+      top: auto;
+      left: auto;
+  }
+.carousel-caption{
+	font-size: 25px;
+	color: floralwhite;
+}
+.carousel{
+    position: relative;
+}
+.social{
+    margin-right: 15px;
+    margin-top: 10px;
+    border-radius: 40%;
+    width: 70px;
+}
+.fa-instagram{
+    background-color: #f40083;
+    color: white;
+}
+.fa-youtube-play{
+    background-color: #bb0000;
+    color: white;
+}
+.fa-twitter{
+    background-color: #55ACEE;
+    color: white;
+}
+.fa-facebook{
+    background-color: #3b5998;
+    color: white;
+}
+.footer{
+    background-color: #fffdb0;
+    margin-top: 10px;
+    padding: 10px;
+}
+.btn-block{
+    background-color: #ffb280;
+    border-color: silver;
+}
+.btn-block:hover{
+    background-color:#ffb280 ;
+}
+.main-heading{
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+}
+hr{
+    border-top: 2px solid yellowgreen;
+    width:50%;
+}
+.main h3{
+    font-size: 25px;
+}
+main p{
+    padding:0px;
+    margin: 30px 0 13px;
+    text-align: center;
+    line-height: 30px;
+}
+.covid-response{
+    float:left;
+    height: 327px;
+    width:410px;
+    margin-left: 10px;
+    margin-left: 10px;
+}
+span{
+    font-size: 18px;
+    font-weight: bold;
+}
+.health{
+    margin-left: 10px;
+}
+.rural img{
+    height: 350px;
+    width:450px;
+}
+.rural h3{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.rural{
+    margin-top: 10px;
+}
+.header_h2{
+    font-family: 'Bebas Neue', cursive;
+}
+.background{
+    background-image: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm21-light-0531-teddy-9_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=eef5b53a758aff72f4dc9b1c2543588e')
+    background-position: center;
+    background-size: cover;
+    background-repeat:no-repeat;
+}

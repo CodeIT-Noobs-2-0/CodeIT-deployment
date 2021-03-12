@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <title>NGO</title>
+  </head>
+  <body>
+
+    <link rel="icon" href="{% static 'img/coronavirus.png' %}">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>NGO</title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <nav class="navbar navbar-fixed navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'img/mask.png' %}" height="100px" width='100px" alt='logo'>
+        </a>
+        <h1 id='title' class="ml-5">CoviFree</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse mr-5" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+          
+            <li class="nav-item active mr-4">
+              <a class="nav-link fa fa-lg fa-home" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item  mr-4">
+              <a class="nav-link fa fa-lg fa-book" href="{% url 'display_donation' %}">Requirements </a><!--Connect to display donation-->
+            </li>
+            <li class="nav-item  mr-4">
+              <a class="nav-link fa fa-lg fa-heart" href="{% url 'display_donated_by' %}">Donations</a><!--Connect to display donated by-->
+            </li>
+            <li class="nav-item dropdown mr-4">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                For Admin
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{%  url 'ngoAdminSignup' %}">Admin Registration</a>
+                <a class="dropdown-item" href="{% url 'register-donation' %}">Register Donation</a>
+                <a class="dropdown-item" href="{% url 'register-donated-by' %}">Register Donated By</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown mr-4">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                API
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{%  url 'user-display-all' %}">Users Display</a>
+                <a class="dropdown-item" href="{% url 'donor-display-all' %}">Donors Display</a>
+                <a class="dropdown-item" href="{% url 'ngo-admin-display-all' %}">NGO Admin Display</a>
+                <a class="dropdown-item" href="{%  url 'user-register' %}">User Register</a>
+                <a class="dropdown-item" href="{%  url 'donor-register' %}">Donor Register</a>
+                <a class="dropdown-item" href="{%  url 'ngo-admin-register' %}">NGO Admin Register</a>
+              </div>
+            </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item mr-4">
+            <a href="{% url "logout" %}" class="nav-link fa fa-lg fa-sign-in ">Logout</a>
+            </li>
+
+              {% else %}
+                <li class="nav-item mr-4">
+            <a href="{% url "login" %}" class="nav-link fa fa-lg fa-sign-in ">Login</a>
+            </li>
+              {% endif %}
+          </ul>
+        </div>
+    </nav><!--End of Navbar-->
+    <h3 class="text-center">Welcome {{user}} !</h3>
+
+{% if user.is_donor %}
+<h1>Donor Confirmed</h1>
+{% endif %}
+{% if user.is_ngo_admin %}
+<h1>NGO ADMIN Confirmed</h1>
+{% endif %}
+    <div class="jumbotron" id="welcome">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h2 id="greeting"></h2>
+                <blockquote class="blockquote text-center">
+                    <p class="mb-0" style="font-style: italic;">“Remember that the happiest people are not those getting more, but those giving more.”</p>
+                    <footer class="blockquote-footer">
+                        <cite title="Source Title"> H. Jackson Brown Jr.</cite>
+                    </footer>
+                </blockquote>
+            </div>
+            <div class="col-12  col-md-6 justify-content-center align-self-center text-center">
+              <a role="button" class="btn btn-block btn-success" style="width: 50%; margin: auto; margin-bottom: 10px;" href="mailto:T017.Scrapshut@gmail.com" >
+                <span class="fa fa-envelope fa-lg"></span>
+                MAIL TO!
+              </a>
+              <a role="button" class="btn btn-block btn-danger" style="width: 50%; margin: auto;" href="https://www.payumoney.com/paybypayumoney/#/A345EB66D626235B3A153B88BB758D91" target = '_blank'>
+                <span class="fa fa-heart fa-lg"></span>
+                DONATE
+              </a>
+            </div>
+        </div>
+    </div>
+      
+    </div>
+      
+    <div class="container">
+      <div class="row">
+        <div class="offset-md-1 col-md-10">
+          <div class="card"  style="background-color: silver;">
+            <div class="card-body">
+              <img width="99%" src="{% static 'img/how-to-get-donations.jpg' %}">
+            </div>
+            <div class="card-footer">
+              <center><a href="{% url 'signup' %}" role="button" class="btn btn-primary">Donor Register Here</a></center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <main class="container">
+      <div>
+      <h2 class="text-center main-heading">Covid-19 Response</h2>
+      <hr>
+      <h3 class="text-center">Our Hearts Beat for Every Indian</h3>
+      </div>
+      <p>The entire <em>CoviFree</em> family joined forces to strengthen and fuel the nation’s fight against COVID-19. With a 24x7, multi-pronged approach, <B>CoviFree</B> quickly mobilised on-the-ground efforts to ensure the nation wins the battle against COVID-19 and worked relentlessly during the global coronavirus pandemic to be at the service to the people of India. Reliance leveraged all of its resources – human as well as material – to help India overcome the threat posed by the virus.</p>
+      <hr>
+      <div>
+      <p>
+        <span>
+          Strengthening India: Setting up health infrastructure support
+        </span>
+      </p>
+      <div class="row">
+      <div class='col-md-5 col-sm-12 '>
+      <img class="covid-response" src="{% static 'img/covid-response.jpg' %}" alt="Infra">
+      </div>
+      <div class="col-md-7 col-sm-12 ">
+      CoviFare Foundation demonstrated its commitment and capacity to rise up to the situation during the response to the COVID-19 crisis. In collaboration with the Brihanmumbai Municipal Corporation (BMC), CoviFare Foundation set up the first, COVID-19 dedicated hospital in Mumbai in just two weeks. With the focus on treating patients with COVID-19, all beds are equipped with the required infrastructure, bio-medical equipment such as ventilators, pacemakers, dialysis machine and patient monitoring devices.
+      The CoviFree foundation  and Research Centre (RFH) set up special medical facilities to quarantine travellers from notified countries and suspected cases identified through contact tracing. Responding to the evolving situation, RFH also provided a unique solution of home quarantine services where the COVID-19 positive and symptomatic patients could receive a comprehensive solution in the safety of their home. The service offers medicines and consumables, vitals monitoring devices, home disinfectants, video consultations with doctors, home nursing service and home sample collection.
+      </div>
+    </div>
+    </div><!--End Of strengthing India-->
+    <hr>
+    <div class="row rural"><!--Start of Rural-->
+      <h3 class="text-center">Protecting the Grassroots: Supporting rural communities with opportunities</h3>
+      <br>
+      <div class="col-md-6 col-sm-12">
+        CoviFree Foundation has also been supporting rural communities across the country during these unprecedented times. Reliance Foundation has provided specialist help and advice to Gram Panchayat (GP) leaders and other community groups, giving them guidance on how to meet challenges and learn about various schemes for financial support and livelihood opportunities. In addition, Reliance Foundation has provided knowledge and capacity building support on livelihood opportunities in farming, horticulture, animal husbandry and fisheries for migrants who returned back to their villages from the cities following the lockdown.
+        In rural areas, GP and Self-Help Groups (SHG) supported and mentored by Reliance Foundation have helped address various challenges related to the pandemic. In many villages, they have taken the lead to create awareness on COVID-19 and put in place the necessary precautionary measures. For example, community initiatives were established to stitch masks and distribute them to frontline workers.
+      </div>
+       <div class="col-md-6 col-sm-12">
+         <img src="{% static 'img/rural.jpg' %}" alt="ruralIndia">
+       </div>
+    </div>
+    </main><!--Added main section-->
+    <!--Footer-->
+    <footer class="footer">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-sm-5 offset-1">
+                 <h4>Reach Us: </h4> 
+                 <address>
+                     D.J.Sanghvi College<br>
+                     Vile Parle (W),<br>
+                     Mumbai.<br>
+                     <i class="fa fa-phone fa-lg"></i> : +91 9175152428<br>
+                     <i class="fa fa-envelope fa-lg"></i> : 
+                     T017.Scrapshut@gmail.com
+                 </address>
+              </div>
+              <div class="col-sm-5 offset-1">
+                  <h4>Follow Us: </h4>
+                  <div class="text-center">
+                      <a href="#"><i class="fa fa-3x fa-instagram social"></i></a>
+                      <a href="#"><i class="fa fa-3x fa-youtube-play social"></i></a>
+                      <a href="#"><i class="fa fa-3x fa-twitter social"></i></a>
+                      <a href="#"><i class="fa fa-3x fa-facebook social"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
